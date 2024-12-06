@@ -1,6 +1,6 @@
 [package]
 name = "imageformat"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 description = "Quick probing of image format without loading the entire file."
 categories = ["multimedia", "multimedia::images"]
