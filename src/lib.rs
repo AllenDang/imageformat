@@ -1,7 +1,7 @@
 use std::{
     fs::File,
     io::{self, Read},
-    path::PathBuf,
+    path::Path,
 };
 
 #[derive(Debug, PartialEq, Eq)]
@@ -31,7 +31,7 @@ pub enum ImageFormat {
     Unknown,
 }
 
-pub fn detect_image_format_path(path: &PathBuf) -> io::Result<ImageFormat> {
+pub fn detect_image_format_path<P: AsRef<Path>>(path: P) -> io::Result<ImageFormat> {
     let mut file = File::open(path)?;
     let mut buffer = [0; 64]; // Read up to 64 bytes, the maximum needed for format detection
     let bytes_read = file.read(&mut buffer)?;
@@ -201,7 +201,7 @@ fn is_vtf(bytes: &[u8]) -> bool {
 
 /// A module containing the most commonly used items from the library.
 pub mod prelude {
-    pub use super::{detect_image_format, ImageFormat};
+    pub use super::{detect_image_format, detect_image_format_path, ImageFormat};
 }
 
 #[cfg(test)]
