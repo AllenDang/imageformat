@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.5](https://github.com/AllenDang/imageformat/compare/v0.1.4...v0.1.5) - 2024-12-06
+
+### Other
+
+- Update README, add example code for detect_image_format_path
+
 ## [0.1.4](https://github.com/AllenDang/imageformat/compare/v0.1.3...v0.1.4) - 2024-12-06
 
 ### Other
