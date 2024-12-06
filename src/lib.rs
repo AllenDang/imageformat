@@ -4,30 +4,53 @@ use std::{
     path::Path,
 };
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, strum::Display)]
 pub enum ImageFormat {
+    #[strum(to_string = "jpg")]
     Jpeg,
+    #[strum(to_string = "jpg")]
     JpegXl,
+    #[strum(to_string = "png")]
     Png,
+    #[strum(to_string = "webp")]
     Webp,
+    #[strum(to_string = "ase")]
     Aseprite,
+    #[strum(to_string = "avif")]
     Avif,
+    #[strum(to_string = "bmp")]
     Bmp,
+    #[strum(to_string = "dds")]
     Dds,
+    #[strum(to_string = "exr")]
     Exr,
+    #[strum(to_string = "ff")]
     Farbfeld,
+    #[strum(to_string = "gif")]
     Gif,
+    #[strum(to_string = "hdr")]
     Hdr,
+    #[strum(to_string = "heif")]
     Heif,
+    #[strum(to_string = "ico")]
     Ico,
+    #[strum(to_string = "ilbm")]
     Ilbm,
+    #[strum(to_string = "ktx2")]
     Ktx2,
+    #[strum(to_string = "pnm")]
     Pnm,
+    #[strum(to_string = "psd")]
     Psd,
+    #[strum(to_string = "qoi")]
     Qoi,
+    #[strum(to_string = "tga")]
     Tga,
+    #[strum(to_string = "tiff")]
     Tiff,
+    #[strum(to_string = "vtf")]
     Vtf,
+    #[strum(to_string = "unknown")]
     Unknown,
 }
 
