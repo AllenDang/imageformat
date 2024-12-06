@@ -1,0 +1,19 @@
+[package]
+name = "imageformat"
+version = "0.1.0"
+edition = "2021"
+description = "Quick probing of image format without loading the entire file."
+categories = ["Images", "Multimedia"]
+license = "MIT/Apache-2.0"
+readme = "README.md"
+keywords = ["image", "metadata", "format"]
+homepage = "https://github.com/AllenDang/safe_format"
+repository = "https://github.com/AllenDang/safe_format"
+exclude = ["/.github", ".gitignore"]
+rust-version = "1.83.0"
+
+[lib]
+name = "imageformat"
+edition = "2021"
+
+[dependencies]
