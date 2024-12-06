@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.6](https://github.com/AllenDang/imageformat/compare/v0.1.5...v0.1.6) - 2024-12-06
+
+### Other
+
+- Rework the detection algorithm use match instead of for loop to boost the performance
+
 ## [0.1.5](https://github.com/AllenDang/imageformat/compare/v0.1.4...v0.1.5) - 2024-12-06
 
 ### Other
