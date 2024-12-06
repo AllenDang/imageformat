@@ -14,6 +14,9 @@ fn main() {
     let bytes = std::fs::read("example.png").expect("Failed to read file");
     let format = detect_image_format(&bytes);
 
+    // Or: pass in the file path
+    let format = detect_image_format_path("/Somepath/example.png").unwrap();
+
     match format {
         ImageFormat::Jpeg => println!("It's a JPEG image."),
         ImageFormat::JpegXl => println!("It's a JPEG XL image."),
