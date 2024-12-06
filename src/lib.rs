@@ -1,3 +1,9 @@
+use std::{
+    fs::File,
+    io::{self, Read},
+    path::PathBuf,
+};
+
 #[derive(Debug, PartialEq, Eq)]
 pub enum ImageFormat {
     Jpeg,
@@ -23,6 +29,14 @@ pub enum ImageFormat {
     Tiff,
     Vtf,
     Unknown,
+}
+
+pub fn detect_image_format_path(path: &PathBuf) -> io::Result<ImageFormat> {
+    let mut file = File::open(path)?;
+    let mut buffer = [0; 64]; // Read up to 64 bytes, the maximum needed for format detection
+    let bytes_read = file.read(&mut buffer)?;
+
+    Ok(detect_image_format(&buffer[..bytes_read]))
 }
 
 pub fn detect_image_format(bytes: &[u8]) -> ImageFormat {
