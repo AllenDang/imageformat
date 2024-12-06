@@ -1,4 +1,4 @@
-# safe_format
+# imageformat
 
 Quickly probe the format of various image formats without reading the entire file.
 
