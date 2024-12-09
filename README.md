@@ -11,8 +11,9 @@ use image_format_detector::prelude::*;
 
 fn main() {
     // Example: Read the first few bytes of a file
-    let bytes = std::fs::read("example.png").expect("Failed to read file");
-    let format = detect_image_format(&bytes);
+    let file = std::fs::File::open("/Somepath/example.webp")?;
+    let mut cursor = std::io::Cursor::new(file);
+    let format = detect_image_format(&mut cursor);
 
     // Or: pass in the file path
     let format = detect_image_format_path("/Somepath/example.png").unwrap();
