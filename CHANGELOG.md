@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.6](https://github.com/AllenDang/imageformat/compare/v0.1.5...v0.1.6) - 2024-12-06
+## [0.2.0](https://github.com/AllenDang/imageformat/compare/v0.1.5...v0.2.0) - 2024-12-06
 
 ### Other
 
