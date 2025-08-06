@@ -14,7 +14,6 @@ rust-version = "1.83.0"
 
 [lib]
 name = "imageformat"
-edition = "2021"
 
 [dependencies]
 strum = { version = "0.26.3", features = ["derive", "strum_macros"] }

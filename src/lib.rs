@@ -48,6 +48,14 @@ pub enum ImageFormat {
     Tiff,
     #[strum(to_string = "vtf")]
     Vtf,
+    #[strum(to_string = "astc")]
+    Astc,
+    #[strum(to_string = "pvr")]
+    Pvr,
+    #[strum(to_string = "etc2")]
+    Etc2,
+    #[strum(to_string = "eac")]
+    Eac,
 }
 
 pub fn detect_image_format<R: Read>(reader: &mut R) -> std::io::Result<ImageFormat> {
@@ -105,6 +113,14 @@ pub fn detect_image_format<R: Read>(reader: &mut R) -> std::io::Result<ImageForm
         [b'V', b'T', b'F', b'\x00', ..] => ImageFormat::Vtf,
         // Aseprite
         [b'A', b'S', b'E', b'F', ..] => ImageFormat::Aseprite,
+        // ASTC
+        [0x13, 0xAB, 0xA1, 0x5C, ..] => ImageFormat::Astc,
+        // PVRTC/PVR
+        [b'P', b'V', b'R', b' ', ..] => ImageFormat::Pvr,
+        // ETC2
+        [b'E', b'T', b'C', b'2', ..] => ImageFormat::Etc2,
+        // EAC
+        [b'E', b'A', b'C', b' ', ..] => ImageFormat::Eac,
         // Default case when no match is found
         _ => {
             return Err(std::io::Error::new(
@@ -323,5 +339,35 @@ mod tests {
         let vtf_bytes = b"VTF\x00\x00\x00\x00\x00\x00\x00\x00\x00";
         let mut cursor = std::io::Cursor::new(vtf_bytes);
         assert_eq!(detect_image_format(&mut cursor).unwrap(), ImageFormat::Vtf);
+    }
+
+    #[test]
+    fn test_astc_detection() {
+        let astc_bytes = [
+            0x13, 0xAB, 0xA1, 0x5C, 0x04, 0x04, 0x01, 0x00, 0xff, 0xff, 0xff, 0xff,
+        ];
+        let mut cursor = std::io::Cursor::new(astc_bytes);
+        assert_eq!(detect_image_format(&mut cursor).unwrap(), ImageFormat::Astc);
+    }
+
+    #[test]
+    fn test_pvr_detection() {
+        let pvr_bytes = b"PVR \x00\x00\x00\x00\x00\x00\x00\x00";
+        let mut cursor = std::io::Cursor::new(pvr_bytes);
+        assert_eq!(detect_image_format(&mut cursor).unwrap(), ImageFormat::Pvr);
+    }
+
+    #[test]
+    fn test_etc2_detection() {
+        let etc2_bytes = b"ETC2\x00\x00\x00\x00\x00\x00\x00\x00";
+        let mut cursor = std::io::Cursor::new(etc2_bytes);
+        assert_eq!(detect_image_format(&mut cursor).unwrap(), ImageFormat::Etc2);
+    }
+
+    #[test]
+    fn test_eac_detection() {
+        let eac_bytes = b"EAC \x00\x00\x00\x00\x00\x00\x00\x00";
+        let mut cursor = std::io::Cursor::new(eac_bytes);
+        assert_eq!(detect_image_format(&mut cursor).unwrap(), ImageFormat::Eac);
     }
 }

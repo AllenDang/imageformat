@@ -23,6 +23,10 @@ fn main() {
         ImageFormat::JpegXl => println!("It's a JPEG XL image."),
         ImageFormat::Png => println!("It's a PNG image."),
         ImageFormat::Webp => println!("It's a WEBP image."),
+        ImageFormat::Astc => println!("It's an ASTC texture."),
+        ImageFormat::Pvr => println!("It's a PVRTC/PVR texture."),
+        ImageFormat::Etc2 => println!("It's an ETC2 texture."),
+        ImageFormat::Eac => println!("It's an EAC texture."),
         ...
     }
 }
@@ -31,9 +35,12 @@ fn main() {
 ### Supported Image Formats
 
 - Aseprite
+- ASTC (Adaptive Scalable Texture Compression)
 - Avif
 - BMP
 - DDS
+- EAC (ETC2 Alpha Compression)
+- ETC2 (Ericsson Texture Compression 2)
 - EXR
 - Farbfeld
 - GIF
@@ -47,6 +54,7 @@ fn main() {
 - PNG
 - PNM (PBM, PGM, PPM)
 - PSD / PSB
+- PVRTC/PVR (PowerVR Texture Compression)
 - QOI
 - TGA
 - TIFF
