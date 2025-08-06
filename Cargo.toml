@@ -1,6 +1,6 @@
 [package]
 name = "imageformat"
-version = "0.2.1"
+version = "0.3.0"
 edition = "2021"
 description = "Quick probing of image format without loading the entire file."
 categories = ["multimedia", "multimedia::images"]
@@ -16,4 +16,4 @@ rust-version = "1.83.0"
 name = "imageformat"
 
 [dependencies]
-strum = { version = "0.26.3", features = ["derive", "strum_macros"] }
+strum = { version = "0.27", features = ["derive", "strum_macros"] }
